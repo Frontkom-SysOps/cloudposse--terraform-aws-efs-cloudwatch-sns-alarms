@@ -21,7 +21,7 @@ module "label" {
 }
 
 resource "aws_cloudwatch_metric_alarm" "burst_credit_balance_too_low" {
-  count = local.enabled ? 1 : 0
+  count = local.enabled && var.burst_credit_balance_alarm_enabled ? 1 : 0
 
   alarm_name          = module.label["burst_credit_balance_too_low"].id
   comparison_operator = "LessThanThreshold"
