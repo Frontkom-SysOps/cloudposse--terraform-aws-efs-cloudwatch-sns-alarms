@@ -21,6 +21,12 @@ variable "filesystem_id" {
   type        = string
 }
 
+variable "burst_credit_balance_alarm_enabled" {
+  description = "Whether to create the BurstCreditBalance alarm. Disable this for EFS file systems that do not publish burst credit metrics, such as elastic throughput file systems."
+  type        = bool
+  default     = false
+}
+
 variable "burst_credit_balance_threshold" {
   description = "The minimum number of burst credits that a file system should have."
   type        = string
